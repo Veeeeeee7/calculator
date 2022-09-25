@@ -2,7 +2,7 @@
     "name": "calculator",
     "description": "Simple 4 function calculator",
     "version": "1.0.0",
-    "manifest version": 3,
+    "manifest_version": 3,
     "permissions": ["storage", "activeTab", "scripting"],
     "action": {
         "default_popup": "index.html",
@@ -13,5 +13,4 @@
     "icons": {
         "128": "/ExstentionIcon.png"
     }
-
 }
