@@ -2,16 +2,16 @@
     "name": "calculator",
     "description": "Simple 4 function calculator",
     "version": "1.0.0",
-    "manifest version": 3,
+    "manifest_version": 3,    
     "permissions": ["storage", "activeTab", "scripting"],
     "action": {
         "default_popup": "index.html",
         "default_icon": {
-            "128": "/ExstentionIcon.png"
+            "16": "ExstentionIcon.png"
         }
     },
     "icons": {
-        "128": "/ExstentionIcon.png"
+        "128": "ExstentionIcon.png"
+    
     }
-
 }
