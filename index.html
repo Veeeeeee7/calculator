@@ -4,7 +4,48 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Calculator</title>
+        <script defer type="module" src="calculation.js"></script>
+        <style>
+            body {
+                height: 500px;
+                width: 500px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                flex-direction: column;
+            }
+
+            #button-section {
+                display: grid;
+                background-color: grey;
+                width: 100vmin;
+                height: 100vmin;
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-columns: repeat(4, 1fr);
+            }
+        </style>
     </head>
-    <body></body>
+    <body>
+        <nav id="answer-section">answer</nav>
+        <div id="button-section">
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+            <button type="button"></button>
+        </div>
+    </body>
 </html>
