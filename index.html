@@ -7,6 +7,14 @@
         <title>Calculator</title>
         <script defer type="module" src="calculation.js"></script>
         <style>
+<<<<<<< Updated upstream
+=======
+            * {
+                font-family: "Bungee Spice";
+                font-size: 40px;
+            }
+
+>>>>>>> Stashed changes
             body {
                 height: 500px;
                 width: 500px;
@@ -17,14 +25,45 @@
                 flex-direction: column;
             }
 
+<<<<<<< Updated upstream
             #button-section {
                 display: grid;
                 background-color: grey;
                 width: 100vmin;
                 height: 100vmin;
-                grid-template-rows: repeat(4, 1fr);
-                grid-template-columns: repeat(4, 1fr);
+=======
+            #answer-section {
+                width: 100vmin;
+                height: 25vmin;
+                display: flex;
+                justify-content: right;
+                align-items: center;
             }
+
+            #button-container {
+                display: flex;
+                flex-direction: row;
+            }
+
+            #number-button-section {
+                display: grid;
+                background-color: grey;
+                width: 75vmin;
+                height: 75vmin;
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            #operation-button-section {
+                display: grid;
+                background-color: grey;
+                width: 25vmin;
+                height: 75vmin;
+                grid-template-columns: 1fr;
+>>>>>>> Stashed changes
+                grid-template-rows: repeat(4, 1fr);
+            }
+<<<<<<< Updated upstream
         </style>
     </head>
     <body>
@@ -46,6 +85,91 @@
             <button type="button" onclick="functionType(multiplication)" id="Button*"></button>
             <button type="button" onclick="returnCalcuation()"id="Button="></button>
             <button type="button" id="Button."></button>
+=======
+
+            #answer {
+                margin: 5vmin;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="answer-section">
+            <div id="answer">answer</div>
+        </div>
+        <div id="button-container">
+            <div id="number-button-section">
+                <button type="button" id="button7" onclick="button7Click()">
+                    7
+                </button>
+                <button type="button" id="button8" onclick="button8Click()">
+                    8
+                </button>
+                <button type="button" id="button9" onclick="button9Click()">
+                    9
+                </button>
+                <button type="button" id="button4" onclick="button4Click()">
+                    4
+                </button>
+                <button type="button" id="button5" onclick="button5Click()">
+                    5
+                </button>
+                <button type="button" id="button6" onclick="button6Click()">
+                    6
+                </button>
+                <button type="button" id="button1" onclick="button1Click()">
+                    1
+                </button>
+                <button type="button" id="button2" onclick="button2Click()">
+                    2
+                </button>
+                <button type="button" id="button3" onclick="button3Click()">
+                    3
+                </button>
+                <button type="button" id="button0" onclick="button0Click()">
+                    0
+                </button>
+                <button type="button" id="buttonDot" onclick="buttonDotClick()">
+                    .
+                </button>
+                <button
+                    type="button"
+                    id="buttonEquals"
+                    onclick="buttonEqualsClick()"
+                >
+                    =
+                </button>
+            </div>
+            <div id="operation-button-section">
+                <button
+                    type="button"
+                    id="buttonDivision"
+                    onclick="buttonDivisionClick()"
+                >
+                    /
+                </button>
+                <button
+                    type="button"
+                    id="buttonMultiplication"
+                    onclick="buttonMultiplicationClick()"
+                >
+                    *
+                </button>
+                <button
+                    type="button"
+                    id="buttonSubtraction"
+                    onclick="buttonSubtractionClick()"
+                >
+                    -
+                </button>
+                <button
+                    type="button"
+                    id="buttonAddition"
+                    onclick="buttonAdditionClick()"
+                >
+                    +
+                </button>
+            </div>
+>>>>>>> Stashed changes
         </div>
     </body>
 </html>
