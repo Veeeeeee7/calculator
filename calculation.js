@@ -1,5 +1,7 @@
 var calculation = "";
 var operationsIndex = [];
+var numbers = [];
+var solution;
 
 button1.onclick = function button1Click() {
     calculation += "1";
@@ -73,7 +75,9 @@ buttonAddition.onclick = function buttonAdditionClick() {
 
 buttonEquals.onclick = function buttonEqualsClick() {
     operationsIndex = getOperations(calculation);
-    console.log(getOperations(calculation));
+    numbers = getNumbers(calculation, operationsIndex);
+    console.log(numbers);
+    solution = calculate(operationsIndex, numbers);
 };
 
 function getOperations(calculationString) {
@@ -81,54 +85,44 @@ function getOperations(calculationString) {
     let index = [];
     for (let i = 0; i < calculationString.length; i++) {
         if (isNaN(calculationString[i])) {
-            index.push(i);
+            index.push({ position: i, operation: calculationString[i] });
         }
     }
     return index;
 }
 
-// var answer;
-// // const division = 0;
-// // const multiplication = 1;
-// // const subtraction = 2;
-// // const addition = 3;
-// var a;
-// var b;
-// var newNumber = false;
-// function numberCreator(number) {
-//     if (!newNumber) {
-//         a += number;
-//     } else {
-//         b += number;
-//     }
-// }
-// }
-// function operator() {
-//     if (operator == "equals") {
-//         newNumber = false;
-//     } else {
-//         newNumber = true;
-//     }
-//     if (type == division) {
-//         calculation = division(a, b);
-//     } else if (type == multiplication) {
-//         calculation = multiplication(a, b);
-//     } else if (type == subtraction) {
-//         calculation = subtraction(a, b);
-//     } else {
-//         calculation = addition(a, b);
-//     }
-// }
+function getNumbers(calculationString, operationIndex) {
+    let temp = [];
+    temp.push(calculationString.substring(0, operationIndex[0].position));
+    for (let i = 1; i < operationIndex.length; i++) {
+        temp.push(
+            calculationString.substring(
+                operationIndex[i - 1].position + 1,
+                operationIndex[i].position
+            )
+        );
+    }
+    temp.push(
+        calculationString.substring(
+            operationIndex[operationIndex.length - 1].position + 1,
+            calculationString.length + 1
+        )
+    );
+    for (let i = 0; i < temp.length; i++) {
+        temp[i] = parseInt(temp[i]);
+    }
+    return temp;
+}
 
-// function returnCalcuation() {
-//     if (type == division) {
-//         calculation = division(a, b);
-//     } else if (type == multiplication) {
-//         calculation = multiplication(a, b);
-//     } else if (type == subtraction) {
-//         calculation = subtraction(a, b);
-//     } else {
-//         calculation = addition(a, b);
-//     }
-//     document.getElementById("answer-section").innerHTML = calculation;
-// }
+function calculate(operations, numbers) {
+    for (let i = 0; i < operations.length; i++) {
+        if (operations[i].operation == "*") {
+        }
+        if (operation[i].operation == "/") {
+        }
+        if (operation[i].operation == "+") {
+        }
+        if (operation[i].operation == "-") {
+        }
+    }
+}
