@@ -13,8 +13,12 @@
             rel="stylesheet"
         />
         <style>
-            body {
+            * {
                 font-family: "Bungee Spice";
+                font-size: 40px;
+            }
+
+            body {
                 height: 500px;
                 width: 500px;
                 display: flex;
@@ -25,7 +29,6 @@
             }
 
             #answer-section {
-                font-size: 40px;
                 width: 100vmin;
                 height: 25vmin;
                 display: flex;
@@ -33,41 +36,111 @@
                 align-items: center;
             }
 
-            #button-section {
-                display: grid;
-                background-color: grey;
-                width: 100vmin;
-                height: 75vmin;
-                grid-template-rows: repeat(4, 1fr);
-                grid-template-columns: repeat(4, 1fr);
+            #button-container {
+                display: flex;
+                flex-direction: row;
             }
 
-            .answer {
+            #number-button-section {
+                display: grid;
+                background-color: grey;
+                width: 75vmin;
+                height: 75vmin;
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            #operation-button-section {
+                display: grid;
+                background-color: grey;
+                width: 25vmin;
+                height: 75vmin;
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr);
+            }
+
+            #answer {
                 margin: 5vmin;
             }
         </style>
     </head>
     <body>
         <div id="answer-section">
-            <div class="answer">answer</div>
+            <div id="answer">answer</div>
         </div>
-        <div id="button-section">
-            <button type="button" id="Button0"></button>
-            <button type="button" id="Button1"></button>
-            <button type="button" id="Button2"></button>
-            <button type="button" id="Button3"></button>
-            <button type="button" id="Button4"></button>
-            <button type="button" id="Button5"></button>
-            <button type="button" id="Button6"></button>
-            <button type="button" id="Button7"></button>
-            <button type="button" id="Button8"></button>
-            <button type="button" id="Button9"></button>
-            <button type="button" onclick="functionType(addition)" id="Button+"></button>
-            <button type="button" onclick="functionType(subtraction)" id="Button-"></button>
-            <button type="button" onclick="functionType(division)" id="Button/"></button>
-            <button type="button" onclick="functionType(multiplication)" id="Button*"></button>
-            <button type="button" onclick="returnCalcuation()"id="Button="></button>
-            <button type="button" id="Button."></button>
+        <div id="button-container">
+            <div id="number-button-section">
+                <button type="button" id="button7" onclick="button7Click()">
+                    7
+                </button>
+                <button type="button" id="button8" onclick="button8Click()">
+                    8
+                </button>
+                <button type="button" id="button9" onclick="button9Click()">
+                    9
+                </button>
+                <button type="button" id="button4" onclick="button4Click()">
+                    4
+                </button>
+                <button type="button" id="button5" onclick="button5Click()">
+                    5
+                </button>
+                <button type="button" id="button6" onclick="button6Click()">
+                    6
+                </button>
+                <button type="button" id="button1" onclick="button1Click()">
+                    1
+                </button>
+                <button type="button" id="button2" onclick="button2Click()">
+                    2
+                </button>
+                <button type="button" id="button3" onclick="button3Click()">
+                    3
+                </button>
+                <button type="button" id="button0" onclick="button0Click()">
+                    0
+                </button>
+                <button type="button" id="buttonDot" onclick="buttonDotClick()">
+                    .
+                </button>
+                <button
+                    type="button"
+                    id="buttonEquals"
+                    onclick="buttonEqualsClick()"
+                >
+                    =
+                </button>
+            </div>
+            <div id="operation-button-section">
+                <button
+                    type="button"
+                    id="buttonDivision"
+                    onclick="buttonDivisionClick()"
+                >
+                    /
+                </button>
+                <button
+                    type="button"
+                    id="buttonMultiplication"
+                    onclick="buttonMultiplicationClick()"
+                >
+                    *
+                </button>
+                <button
+                    type="button"
+                    id="buttonSubtraction"
+                    onclick="buttonSubtractionClick()"
+                >
+                    -
+                </button>
+                <button
+                    type="button"
+                    id="buttonAddition"
+                    onclick="buttonAdditionClick()"
+                >
+                    +
+                </button>
+            </div>
         </div>
     </body>
 </html>
