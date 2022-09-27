@@ -76,8 +76,9 @@ buttonAddition.onclick = function buttonAdditionClick() {
 buttonEquals.onclick = function buttonEqualsClick() {
     operationsIndex = getOperations(calculation);
     numbers = getNumbers(calculation, operationsIndex);
-    console.log(numbers);
     solution = calculate(operationsIndex, numbers);
+    answer.innerHTML = solution;
+    calculation = "";
 };
 
 function getOperations(calculationString) {
@@ -115,14 +116,54 @@ function getNumbers(calculationString, operationIndex) {
 }
 
 function calculate(operations, numbers) {
+    let multiplicationDivision = [];
+    let additionSubtraction = [];
+    let tempIndex = 0;
     for (let i = 0; i < operations.length; i++) {
         if (operations[i].operation == "*") {
+            multiplicationDivision.push({ position: i, operation: "*" });
         }
-        if (operation[i].operation == "/") {
+        if (operations[i].operation == "/") {
+            multiplicationDivision.push({ position: i, operation: "/" });
         }
-        if (operation[i].operation == "+") {
+        if (operations[i].operation == "+") {
+            additionSubtraction.push({ position: i, operation: "+" });
         }
-        if (operation[i].operation == "-") {
+        if (operations[i].operation == "-") {
+            additionSubtraction.push({ position: i, operation: "-" });
         }
     }
+
+    for (let i = 0; i < multiplicationDivision.length; i++) {
+        while (
+            numbers[multiplicationDivision[i].position - tempIndex] == null
+        ) {
+            tempIndex++;
+        }
+        if (multiplicationDivision[i].operation == "*") {
+            numbers[multiplicationDivision[i].position - tempIndex] *=
+                numbers[multiplicationDivision[i].position + 1];
+            numbers[multiplicationDivision[i].position + 1] = null;
+        } else if (multiplicationDivision[i].operation == "/") {
+            numbers[multiplicationDivision[i].position - tempIndex] /=
+                numbers[multiplicationDivision[i].position + 1];
+            numbers[multiplicationDivision[i].position + 1] = null;
+        }
+    }
+
+    for (let i = 0; i < additionSubtraction.length; i++) {
+        while (numbers[additionSubtraction[i].position - tempIndex] == null) {
+            tempIndex++;
+        }
+        if (additionSubtraction[i].operation == "+") {
+            numbers[additionSubtraction[i].position - tempIndex] +=
+                numbers[additionSubtraction[i].position + 1];
+            numbers[additionSubtraction[i].position + 1] = null;
+        } else if (additionSubtraction[i].operation == "-") {
+            numbers[additionSubtraction[i].position - tempIndex] -=
+                numbers[additionSubtraction[i].position + 1];
+            numbers[additionSubtraction[i.position] + 1] = null;
+        }
+    }
+    return numbers[0];
 }
