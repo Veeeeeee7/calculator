@@ -85,7 +85,7 @@ function getOperations(calculationString) {
     calculationString.split("");
     let index = [];
     for (let i = 0; i < calculationString.length; i++) {
-        if (isNaN(calculationString[i])) {
+        if (isNaN(calculationString[i]) && calculationString[i] !== ".") {
             index.push({ position: i, operation: calculationString[i] });
         }
     }
@@ -110,7 +110,7 @@ function getNumbers(calculationString, operationIndex) {
         )
     );
     for (let i = 0; i < temp.length; i++) {
-        temp[i] = parseInt(temp[i]);
+        temp[i] = parseFloat(temp[i]);
     }
     return temp;
 }
